@@ -25,7 +25,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     next();
   });
-app.use(helmet());
+// app.use(helmet());
 app.use(morgan("combined"));
 
 const authenticateApiKey = require("./Auth");
