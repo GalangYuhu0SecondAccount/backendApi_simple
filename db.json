@@ -1,0 +1,18 @@
+[
+    {
+        "nama" : "galang",
+        "umur" : 20,
+        "jenisKelamin" : "laki-laki" 
+    },
+    {
+        "nama" : "jamal",
+        "umur" : 29,
+        "jenisKelamin" : "tidak di ketahui"
+    },
+    {
+        "nama" : "jujum",
+        "umur" : 29,
+        "jenisKelamin" : "waria"
+    }
+
+]
