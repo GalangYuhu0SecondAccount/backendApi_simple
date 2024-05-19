@@ -19,7 +19,7 @@ app.use(morgan("combined"));
 
 const authenticateApiKey = require("./Auth");
 
-// Data pengguna
+
 const users = require("./db.json");
 
 app.get("/request", (req, res) => {
