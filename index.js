@@ -19,12 +19,12 @@ app.use(cors({
 }));
 
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//     next();
+//   });
 // app.use(helmet());
 app.use(morgan("combined"));
 
@@ -34,7 +34,7 @@ const authenticateApiKey = require("./Auth");
 const users = require("./db.json");
 
 app.get("/request", (req, res) => {
-    const username = req.body.username;
+    const username = req.query.username;
 
     
         const response = {
