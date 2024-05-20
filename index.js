@@ -9,8 +9,8 @@ const helmet = require("helmet");
 
 const app = express();
 
-const PORT = process.env.PORT || process.env.PORT_SERVER_HOME || "0.0.0.0" ;
-
+const PORT = process.env.PORT;
+const IP =  process.env.PORT_SERVER_HOME 
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json())
@@ -55,6 +55,6 @@ app.get("/", (req, res) => {
     res.send("Welcome to the API");
 });
 
-app.listen(PORT, () => {
+app.listen(PORT  , () => {
     console.log(`Server running on port ${PORT}`);
 });
