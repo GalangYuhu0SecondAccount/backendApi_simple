@@ -1,15 +1,24 @@
-const dotenv = require("dotenv")
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
+
+function AuthenticationRoute(req, res, next) {
 
 
-function AuthenticationRoute (req , res , next) {
     const api_Key = req.headers["x-api-key"];
 
-    if (api_Key && "/users" === process.env.API_KEY) {
-        next();
-    } else {
-        return res.status(400).json({message : "your have request api key"})
+    if (!api_Key) {
+        return res.status(401).json({ message: "API Key is missing" });
     }
+
+
+
+   if (process.env.SKIP_AUTH === "true") {
+       if (api_Key && api_Key === process.env.API_KEY) {
+        next();
+   } else {
+    
+   }
+  }
 }
 
-module.exports = AuthenticationRoute;
+module.exports = AuthenticationRoute
