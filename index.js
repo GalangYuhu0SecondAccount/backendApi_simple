@@ -9,7 +9,7 @@ const helmet = require("helmet");
 
 const app = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || process.env.PORT_SERVER_HOME || "0.0.0.0" ;
 
 // Middleware
 app.use(express.json());
