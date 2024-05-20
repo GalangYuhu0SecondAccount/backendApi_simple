@@ -26,18 +26,15 @@ const AuthenticationRoute = require("./Auth")
 const users = require("./db.json");
 
 app.get("/request", (req, res) => {
-    const username = req.query.username;
-
     
         const response = {
-            username : username,
             api_key: process.env.API_KEY
         };
         res.status(201).json(response);
     } 
 );
 
-app.get("/users", AuthenticationRoute, (req, res) => {
+app.get("/users", AuthenticationRoute ,(req, res) => {
   return res.status(200).json(users);
 });
 
