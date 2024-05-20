@@ -16,9 +16,11 @@ function AuthenticationRoute(req, res, next) {
        if (api_Key && api_Key === process.env.API_KEY) {
         next();
    } else {
-    
+      return res.status(401).json({ message: "API Key is missing" });
    }
   }
 }
 
 module.exports = AuthenticationRoute
+
+

@@ -9,8 +9,8 @@ const helmet = require("helmet");
 
 const app = express();
 
-const PORT = process.env.PORT;
-const IP =  process.env.PORT_SERVER_HOME 
+const PORT = process.env.PORT || 4000;
+
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json())
@@ -38,23 +38,13 @@ app.get("/request", (req, res) => {
 );
 
 app.get("/users", AuthenticationRoute, (req, res) => {
-
-    const token = req.headers["x-api-key"];
-    if (!token) {
-        return res.status(401).json({ message: "i want to value valid" });
-    }
-
-    if (token === process.env.API_KEY) {
-        return res.status(200).json({ message: "Data success", data: users });
-    } else {
-        return res.status(400).json({ message: "Error: Invalid token" });
-    }
+  return res.status(200).json(users);
 });
 
 app.get("/", (req, res) => {
     res.send("Welcome to the API");
 });
 
-app.listen(PORT  , () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
